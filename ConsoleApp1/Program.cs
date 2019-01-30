@@ -10,7 +10,8 @@ namespace c0730283
     {
         static void Main(string[] args)
         {
-            //TODD
+            Countryside blue = new Countryside();
+            blue.Launch();
         }
     }
     class village
@@ -28,9 +29,14 @@ namespace c0730283
         village Ajax = new village();
         village First;
         village Last;
+        village temp;
+       
 
         public void Launch()
         {
+            
+             First = Maple;
+             Last = Ajax;
             Maple.villageName = "Maple";
             Maple.nextvillage = Toronto;
             Maple.previousvillage = null;
@@ -40,6 +46,23 @@ namespace c0730283
             Ajax.villageName = "Ajax";
             Ajax.nextvillage = null;
             Ajax.nextvillage = Toronto;
+
+           Console.WriteLine(this.displayMap());
+        }
+
+        public string displayMap()
+        {
+            string listofCities = "";
+            // we need to print all cities in our area
+
+            
+                listofCities = listofCities + First.villageName + "----";
+                temp = First.nextvillage;
+            listofCities = listofCities + temp.villageName + "----";
+
+
+            return listofCities;
+
         }
     }
 }
